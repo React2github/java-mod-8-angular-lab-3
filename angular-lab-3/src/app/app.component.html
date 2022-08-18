@@ -1,0 +1,23 @@
+<h1>Welcome to {{ title }} !</h1>
+<p>Number of Players is {{players.length}}</p>
+
+
+
+<div>
+  What is the athelete's name?<input type="text"  [(ngModel)]="personName" />
+  What is the athelete's sport?<input type="text"  [(ngModel)]="sportName" />
+  <button [disabled]="disablesNewMessage" (click)="onSendPlayer()">Send Message</button>
+</div>
+
+<div>
+  <ul>
+    <li *ngFor="let currentPlayer of players">
+      {{currentPlayer.name}} ({{currentPlayer.sport}})
+      <p *ngIf="currentPlayer.active">is active</p>
+      <p *ngIf="!currentPlayer.active">is not active</p>
+    </li>
+    <li *ngFor="let currentAthlete of athletes">
+      {{currentAthlete.personName}}: {{currentAthlete.sportName}}: {{currentAthlete.active ? "is active":"is not active"}}
+    </li>
+  </ul>
+</div>
